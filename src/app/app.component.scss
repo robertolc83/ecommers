@@ -5,3 +5,36 @@
     overflow: auto;
     background: salmon;
 }
+
+
+.products--grid {
+    //first movile : pensamos primero en ajustes para movil
+    display: flex;
+    flex-direction: column;
+    div {//Propiedades para todos los divs dentro de products--grid
+        img {//Propiedades para todas las imagenes dentro del grid
+            width: 100%;//Asignamos un tanaño proporcional al 
+            border-radius: 10px;//Agregamos un borde redondeado  a las imagenes
+        }
+        h2, p {
+            margin: 0;//Quitamos los margenes por default que tienen h2 y p
+        }
+    }
+}
+
+//Funciona como un if donde se valida si la pantalla tiene un ancho de 40em(tablet) en adelante
+//entonces crea un grid de 4 colimnas
+@media screen and (min-width: 40em){
+    .products--grid {
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        //grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 15px;
+    }
+}
+//Si la pantalla tiene 60em (laptop)
+@media screen and (min-width: 60em){
+    .products--grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

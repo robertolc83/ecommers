@@ -1,10 +1,23 @@
+<h1>ngSwitch</h1>
+<!--Utilizamos ngModel para escuchar la variable name de la clase Person
+y creamos un switch con el valor de name donde evaluamos el nombre-->
+<input type="text" required [(ngModel)]="Person.name"/>
+<div [ngSwitch]="Person.name">
+  <p *ngSwitchCase="'fabian'">La persona es Fabian</p>
+  <p *ngSwitchCase="'Roberto'">La persona es Roberto</p>
+  <p *ngSwitchCase="'nicolas'">La persona es Nicolas</p>
+  <p *ngSwitchDefault>Opcion Default no hace match</p>
+</div>  
+<hr>
 <h1>ngFor con Objetos</h1>
-<div>
+  <!--Creamos una interface Product en product.model.ts para tipar la clase 
+  products donde creamos un array de objetos que recorremos con el for y 
+desplegamos el atributo de imagen, price y name. RECUERDA QUE SOLO SE PUEDEN ITERAR ARRAYS -->
+<div class="products--grid">
   <div *ngFor="let product of products">
-    <img width="250" [src]="product.image" alt="image">
+    <img [src]="product.image" alt="image">
     <h2>{{ product.price }}</h2>
     <p>{{ product.name }}</p>
-
   </div>
 </div>
 
