@@ -9,7 +9,6 @@ import { Product } from './product.model';
 export class AppComponent {
 
   //VARIABLES
-
   selected = "";
   name = "";
   age = "";
@@ -18,6 +17,13 @@ export class AppComponent {
   //CREAMOS UN ARRAY 
   names: string[] = ["Abril","Fabian", "Alejandro"];
   newName = "";
+
+  //CREAMOS UN OBJETO
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
+  };
 
   //CREAMOS UN ARRAY DE OBJETOS TIPADO CON LA INTERFACE(MODELO) QUE CREAMOS EN Product.model.ts
   products: Product[] = [

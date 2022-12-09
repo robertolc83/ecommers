@@ -6,7 +6,6 @@
     background: salmon;
 }
 
-
 .products--grid {
     //first movile : pensamos primero en ajustes para movil
     display: flex;
@@ -20,6 +19,32 @@
             margin: 0;//Quitamos los margenes por default que tienen h2 y p
         }
     }
+}
+
+.message-error {
+    background: red;
+    color: white;
+    opacity: 0; //para que por default no se muestre
+    transition: all linear .5s; //transición de .5 segundos para pasar de opacity 0 a 1 es decir cuando se muestre el campo
+    &.invalid { //invalid es el nombre de la clase dinámica 
+        opacity: 1;
+    }
+}
+
+.line-error{
+    height: 0;
+    border-bottom: 1px solid;
+    &.invalid { 
+        border-color: red;
+    }
+    &.valid { 
+        border-color: green;
+    }
+}
+
+.styles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 //Funciona como un if donde se valida si la pantalla tiene un ancho de 40em(tablet) en adelante

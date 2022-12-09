@@ -1,3 +1,50 @@
+<h1>NgClass & NgStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="Person.name"/>
+<!--Utilizamos Ngclass para englobar las clases dinámicas en una sola utilizando ngClass
+    En este caso tenemos la clase valid e invalid para cambiar el color de un hr-->
+<hr class="line-error"
+  [ngClass]="{
+    'valid': nameInput4.valid,
+    'invalid': nameInput4.invalid
+  }"
+>
+<p class="message-error" [class.invalid]="nameInput4.invalid">
+  EL campo es requerido
+</p>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width"/>
+    <input type="number" [(ngModel)]="box.height"/>
+    <input type="color" [(ngModel)]="box.background"/>
+  </div>
+  <div>
+    <!--Englobamos varios estilos utilizando ngStyle de forma dinámica-->
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.background,
+      'display': 'block'
+  }"></div>
+  </div>
+</div>
+
+<hr>
+<h1>Class binding & Style binding</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="Person.name"/>
+<!--usamos property binding para declarar una clase dinamica con class.nombredelaclase
+donde colocamos una variable o expresión boleana en este caso nameInput2 para cuando
+el campo esté vacio-->
+<p class="message-error" [class.invalid]="nameInput2.invalid">
+  EL campo es requerido
+</p>
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="Person.name"/>
+<!--Utilizamos property Binding a style para modicicar el estilo de un parrafo de forma
+  directa condicionado con un if en nameInput3 en caso de ser invalid-->
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Texto de un parrafo cualquiera</p>
+
+
+<hr>
 <h1>ngSwitch</h1>
 <!--Utilizamos ngModel para escuchar la variable name de la clase Person
 y creamos un switch con el valor de name donde evaluamos el nombre-->
@@ -8,6 +55,7 @@ y creamos un switch con el valor de name donde evaluamos el nombre-->
   <p *ngSwitchCase="'nicolas'">La persona es Nicolas</p>
   <p *ngSwitchDefault>Opcion Default no hace match</p>
 </div>  
+
 <hr>
 <h1>ngFor con Objetos</h1>
   <!--Creamos una interface Product en product.model.ts para tipar la clase 
