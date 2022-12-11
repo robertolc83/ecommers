@@ -1,3 +1,29 @@
+<h1>Formulario</h1>
+<!--Usamos #myForm para nombrar al formulario y ngSubmit para habilitar la acción al presionar el boton de submit-->
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" #nameForm="ngModel" required id="name" [(ngModel)]="register.name">
+    <p class="message-error" [class.invalid]="nameForm.invalid">Campo Requerido</p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" #emailForm="ngModel" required id="email" [(ngModel)]="register.email">
+    <p class="message-error" [class.invalid]="emailForm.invalid">Campo Requerido</p>
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" #passwordForm="ngModel" required id="password" [(ngModel)]="register.password">
+    <p class="message-error" [class.invalid]="passwordForm.invalid">Campo Requerido</p>
+  </div>
+  <!--Siempre que usemos un botón para enviar el formulario hay que tiparlo como submit-->
+  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+  <!--Siempre que usems un botón adicional al de envío/Guardar datos del formulario
+    hay que tiparlo como button para que no cause conflictos-->
+  <button type="button">Alguna Accion</button>
+</form>
+
+<hr>
 <h1>NgClass & NgStyle</h1>
 <input type="text" required #nameInput4="ngModel" [(ngModel)]="Person.name"/>
 <!--Utilizamos Ngclass para englobar las clases dinámicas en una sola utilizando ngClass

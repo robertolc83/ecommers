@@ -25,6 +25,12 @@ export class AppComponent {
     background: 'red'
   };
 
+  register = {
+    name: '',
+    email: '',
+    password: ''
+  }
+
   //CREAMOS UN ARRAY DE OBJETOS TIPADO CON LA INTERFACE(MODELO) QUE CREAMOS EN Product.model.ts
   products: Product[] = [
     {
@@ -104,6 +110,10 @@ export class AppComponent {
   deleteName(index: number){
     //DONDE INDEX ES EL INDICE DEL VALOR A ELIMINAR Y 1 EL NÚMERO DE REGISTROS A ELIMINAR EN ESTE CASO SOLO EL SELECCIONADO
     this.names.splice(index,1);
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 
 }
